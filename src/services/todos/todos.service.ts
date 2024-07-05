@@ -2,7 +2,7 @@ import { api } from '../api'
 import { CreateTodoPayload, Todo, UpdateTodoPayload } from './todos.types'
 
 class TodosService {
-	private static TODOS_ENDPOINT = '/todos'
+	private static TODOS_ENDPOINT = '/todo-lists'
 
 	static getTodos() {
 		return api.get<Todo[]>(this.TODOS_ENDPOINT).then(res => res.data)

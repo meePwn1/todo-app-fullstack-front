@@ -1,12 +1,14 @@
 import { api } from '../api'
-import { CreateTaskPayload, TaskResponse, UpdateTaskPayload } from './tasks.types'
+import { CreateTaskPayload, TaskQueryParams, TaskResponse, UpdateTaskPayload } from './tasks.types'
 
 export class TasksService {
 	private static TASKS = '/tasks'
-	private static TODOS = '/todos'
+	private static TODOS = '/todo-lists'
 
-	static async getTasks(todoId: string) {
-		return api.get<TaskResponse[]>(`${this.TODOS}/${todoId}${this.TASKS}`).then(res => res.data)
+	static async getTasks(todoId: string, query?: TaskQueryParams) {
+		return api.get<TaskResponse>(`${this.TODOS}/${todoId}${this.TASKS}`, {
+			params: query,
+		})
 	}
 
 	static async createTask({ title, todoId }: CreateTaskPayload) {

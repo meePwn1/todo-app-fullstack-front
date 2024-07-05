@@ -20,6 +20,7 @@ export const useCreateTask = () => {
 
 export const useUpdateTask = () => {
 	const queryClient = useQueryClient()
+
 	const { mutate: updateTask, isPending } = useMutation({
 		mutationKey: ['updateTask'],
 		mutationFn: ({ id, todoId, payload }: UpdateTaskPayload) => TasksService.updateTask({ id, todoId, payload }),
