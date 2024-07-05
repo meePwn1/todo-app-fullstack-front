@@ -11,6 +11,7 @@ export const api = axios.create({
 	baseURL: process.env.NEXT_PUBLIC_TODO_APP_URL,
 	headers: {
 		'API-KEY': process.env.NEXT_PUBLIC_API_KEY,
+		Authorization: `Bearer ${process.env.NEXT_PUBLIC_BEARER_TOKEN}`,
 	},
 	withCredentials: true,
 })
